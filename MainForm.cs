@@ -67,13 +67,9 @@ namespace BtC
             switch (Properties.Settings.Default.AutoCon)
             {
                 case true:
-                    AutoCon.Checked = true;
-                    AutoCon.CheckState = CheckState.Checked;
                     AutoConnector();
                     break;
                 case false:
-                    AutoCon.Checked= false;
-                    AutoCon.CheckState = CheckState.Unchecked;
                     break;
             } 
         }
@@ -84,7 +80,7 @@ namespace BtC
             {
                 case true:
                     COMport = Properties.Settings.Default.LastConCOM;
-                    SPDropDown.SelectedText = Properties.Settings.Default.LastConCOM;
+                    SPDropDown.SelectedItem = Properties.Settings.Default.LastConCOM;
                     while (serialPort.IsOpen)
                     {
                         serialPort.Close();
@@ -92,7 +88,7 @@ namespace BtC
                     Selection();
                     break;
                 case false:
-                    MessageBox.Show("Auto Connection is false.", "Turn ON AutoCon to continue !!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Auto Connection is turned OFF.", "Turn ON AutoCon in Settings to continue !!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
             }
 
@@ -110,7 +106,7 @@ namespace BtC
         private void SPDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             // The string value COMport will be the selected serial port from the dropdown.
-            COMport = this.SPDropDown.GetItemText(this.SPDropDown.SelectedItem);
+            COMport = this.SPDropDown.SelectedItem.ToString();
             Properties.Settings.Default.LastConCOM = COMport;
             Properties.Settings.Default.Save();
 
@@ -128,14 +124,18 @@ namespace BtC
             if (SPDropDown != null)
             {
                 // Checks again if selection is not empty or text is not empty
-                if (SPDropDown.SelectedIndex > -1 || SPDropDown.SelectedText != null)
+                if (SPDropDown.SelectedIndex > -1 || SPDropDown.SelectedItem.ToString() != null)
                 {
                     // Tries to connect to the serial port.
+                    Progresbar.SliderColor = Color.Green;
+                    Progresbar.Value = 50;
                     Connect();
                 }
                 else
                 {
                     // Calls disconnection.
+                    Progresbar.SliderColor = Color.Red;
+                    Progresbar.Value = 50;
                     DisCon();
                 }
             }
@@ -158,7 +158,8 @@ namespace BtC
                 if (!serialPort.IsOpen)
                 {
                     serialPort.PortName = COMport;
-                    serialPort.Open();                    
+                    serialPort.Open();
+                    Progresbar.Value = 50;
                     ReCon();
                 }
             }
@@ -336,6 +337,8 @@ namespace BtC
             SIX.Enabled = true;
             SEVEN.Enabled = true;
             EIGHT.Enabled = true;
+            Progresbar.SliderColor = Color.Lime;
+            Progresbar.Value = 100;
         }
 
         // To disable the buttons if not connected.
@@ -351,6 +354,8 @@ namespace BtC
             SIX.Enabled = false;
             SEVEN.Enabled = false;
             EIGHT.Enabled = false;
+            Progresbar.SliderColor = Color.Red;
+            Progresbar.Value = 0;
         }
 
         // Tells what to do if button is ON.
@@ -409,42 +414,42 @@ namespace BtC
                 case 1:
                     ONE.ForeColor = Color.WhiteSmoke;
                     ONE.BackColor = OffBack;
-                    ONE.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    ONE.FlatAppearance.BorderColor = Color.Gray;
                     break;
                 case 2:
                     TWO.ForeColor = Color.WhiteSmoke;
                     TWO.BackColor = OffBack;
-                    TWO.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    TWO.FlatAppearance.BorderColor = Color.Gray;
                     break;
                 case 3:
                     THREE.ForeColor = Color.WhiteSmoke;
                     THREE.BackColor = OffBack;
-                    THREE.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    THREE.FlatAppearance.BorderColor = Color.Gray;
                     break;
                 case 4:
                     FOUR.ForeColor = Color.WhiteSmoke;
                     FOUR.BackColor = OffBack;
-                    FOUR.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    FOUR.FlatAppearance.BorderColor = Color.Gray;
                     break;
                 case 5:
                     FIVE.ForeColor = Color.WhiteSmoke;
                     FIVE.BackColor = OffBack;
-                    FIVE.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    FIVE.FlatAppearance.BorderColor = Color.Gray;
                     break;
                 case 6:
                     SIX.ForeColor = Color.WhiteSmoke;
                     SIX.BackColor = OffBack;
-                    SIX.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    SIX.FlatAppearance.BorderColor = Color.Gray;
                     break;
                 case 7:
                     SEVEN.ForeColor = Color.WhiteSmoke;
                     SEVEN.BackColor = OffBack;
-                    SEVEN.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    SEVEN.FlatAppearance.BorderColor = Color.Gray;
                     break;
                 case 8:
                     EIGHT.ForeColor = Color.WhiteSmoke;
                     EIGHT.BackColor = OffBack;
-                    EIGHT.FlatAppearance.BorderColor = Color.WhiteSmoke;
+                    EIGHT.FlatAppearance.BorderColor = Color.Gray;
                     break;
             }
         }
@@ -610,23 +615,6 @@ namespace BtC
             DisCon();
         }
 
-        // Checks for a checkbox value.
-        private void AutoCon_CheckedChanged(object sender, EventArgs e)
-        {
-            switch (AutoCon.Checked)
-            {
-                case true:
-                    AutoCon.CheckState = CheckState.Checked;
-                    Properties.Settings.Default.AutoCon = true;
-                    break;
-                case false:
-                    AutoCon.CheckState = CheckState.Unchecked;
-                    Properties.Settings.Default.AutoCon = false;
-                    break;
-            }
-            Properties.Settings.Default.Save();
-        }
-
         // Allows the user to toggle buttons by pressing the number/numpad keys
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
@@ -768,6 +756,19 @@ namespace BtC
         private void Refresh_Click(object sender, EventArgs e)
         {
             Connect();
+        }
+
+        private void DisconBtn_Click(object sender, EventArgs e)
+        {
+            switch (serialPort.IsOpen)
+            {
+                case true:
+                    serialPort.Close();
+                    DisCon();
+                    break;
+                case false:
+                    break;
+            }
         }
     }
 }

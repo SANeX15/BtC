@@ -33,7 +33,6 @@ namespace BtC
         public SettingsForm()
         {
             InitializeComponent();
-            label12.Text = ("Version : 1.2.0");
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -46,6 +45,17 @@ namespace BtC
             NewNameOf6.Text = Btn6;
             NewNameOf7.Text = Btn7;
             NewNameOf8.Text = Btn8;
+            switch (Properties.Settings.Default.AutoCon)
+            {
+                case true:
+                    AutoCon.Checked = true;
+                    AutoCon.CheckState = CheckState.Checked;
+                    break;
+                case false:
+                    AutoCon.Checked = false;
+                    AutoCon.CheckState = CheckState.Unchecked;
+                    break;
+            }
         }
 
         private void ClearNamesBtn_Click(object sender, EventArgs e)
@@ -233,6 +243,21 @@ namespace BtC
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AutoCon_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (AutoCon.Checked)
+            {
+                case true:
+                    AutoCon.CheckState = CheckState.Checked;
+                    Properties.Settings.Default.AutoCon = true;
+                    break;
+                case false:
+                    AutoCon.CheckState = CheckState.Unchecked;
+                    Properties.Settings.Default.AutoCon = false;
+                    break;
+            }
         }
     }
 }

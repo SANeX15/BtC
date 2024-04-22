@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Pradyumna\source\repos\BtC\publish\BtC\</PublishUrl>
+    <PublishUrl>D:/Release/BtC/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -54,7 +54,7 @@
     <StartupObject>BtC.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>BtC new logo.ico</ApplicationIcon>
+    <ApplicationIcon>BtC original.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>DB878397CC6234D2AD3E58E45D397481674514B2</ManifestCertificateThumbprint>
@@ -89,6 +89,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls-ModernButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls-ModernDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls-ModernProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +157,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="BtC new logo.ico" />
+    <Content Include="BtC original.ico" />
+    <Content Include="Resources\discon.png" />
     <Content Include="Resources\Refresh.png" />
     <Content Include="Resources\settings.png" />
   </ItemGroup>
