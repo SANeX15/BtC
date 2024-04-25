@@ -3,7 +3,7 @@
 Bluetooth Control or BtC is a DotNet based app for controlling appliances upto 8 ports on Arduino Uno R3 via a Serial to HC05 connection.
 
 ## Screenshots
-![image](https://github.com/SANeX15/BtC/assets/83059735/2c63ab68-52df-4943-aac1-e7aa272c7661) 
+![BtC-1 1-disconnected](https://github.com/SANeX15/BtC/assets/83059735/a61fa673-9221-4a92-b624-4d1fa9f417d0)
 ![image](https://github.com/SANeX15/BtC/assets/83059735/d0c939d6-501c-412d-816b-55590dc42538)
 
 ## Features
