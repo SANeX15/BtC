@@ -58,7 +58,7 @@ namespace BtC
             DisCon();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Shown(object sender, EventArgs e)
         {
             // Call Custom Names if set.
             LoadNames();
@@ -169,20 +169,28 @@ namespace BtC
                 // ERROR name : Semaphore Timeout. This one will require instructions.
                 if (e.ToString().Contains("timeout"))
                 {
+                    // For the recurring "Semaphore Timeout" error.
                     MessageBox.Show("Listen carefully, Restart (Turn OFF & again turn ON) your desktop's BlueTooth. Then click the refresh.", "Timed out", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
+                    // Close the serial port to avoid other possible exceptions.
+                    serialPort.Close();
+
+                    // Calls Disconnection State of UI.
+                    DisCon();
                 }
 
                 // Else just show what the error is.
                 else
                 {
+                    // For any other unknown error.
                     MessageBox.Show(e.Message, "There seems to be a PROBLEM !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Close the serial port to avoid other possible exceptions.
+                    serialPort.Close();
+
+                    // Calls Disconnection State of UI.
+                    DisCon();
                 }
-
-                // Close th serial port to avoid future errors
-                serialPort.Close();
-
-                // Calls Disconnection.
-                DisCon();
             }
         }
 

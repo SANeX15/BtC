@@ -60,14 +60,14 @@ namespace BtC
 
         private void ClearNamesBtn_Click(object sender, EventArgs e)
         {
-            NewNameOf1.Text = null;
-            NewNameOf2.Text = null;
-            NewNameOf3.Text = null;
-            NewNameOf4.Text = null;
-            NewNameOf5.Text = null;
-            NewNameOf6.Text = null;
-            NewNameOf7.Text = null;
-            NewNameOf8.Text = null;
+            NewNameOf1.Text = "";
+            NewNameOf2.Text = "";
+            NewNameOf3.Text = "";
+            NewNameOf4.Text = "";
+            NewNameOf5.Text = "";
+            NewNameOf6.Text = "";
+            NewNameOf7.Text = "";
+            NewNameOf8.Text = "";
             SaveAllMods();
         }
 
@@ -247,6 +247,11 @@ namespace BtC
 
         private void AutoCon_CheckedChanged(object sender, EventArgs e)
         {
+            if (AutoCon.Checked != Properties.Settings.Default.AutoCon)
+            {
+                nameschanged++;
+            }
+
             switch (AutoCon.Checked)
             {
                 case true:

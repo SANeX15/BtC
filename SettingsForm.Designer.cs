@@ -135,13 +135,12 @@
             // 
             this.AutoCon.AutoSize = true;
             this.AutoCon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AutoCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AutoCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoCon.ForeColor = System.Drawing.Color.White;
             this.AutoCon.Location = new System.Drawing.Point(9, 284);
             this.AutoCon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AutoCon.Name = "AutoCon";
-            this.AutoCon.Size = new System.Drawing.Size(216, 20);
+            this.AutoCon.Size = new System.Drawing.Size(219, 20);
             this.AutoCon.TabIndex = 19;
             this.AutoCon.Text = "Auto Connect to previous device";
             this.AutoCon.UseVisualStyleBackColor = true;
