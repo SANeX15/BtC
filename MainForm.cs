@@ -127,15 +127,15 @@ namespace BtC
                 if (SPDropDown.SelectedIndex > -1 || SPDropDown.SelectedItem.ToString() != null)
                 {
                     // Tries to connect to the serial port.
-                    Progresbar.SliderColor = Color.Green;
-                    Progresbar.Value = 50;
+                    Progresbar.SliderColor = Color.Yellow;
+                    Progresbar.Value = 100;
                     Connect();
                 }
                 else
                 {
                     // Calls disconnection.
                     Progresbar.SliderColor = Color.Red;
-                    Progresbar.Value = 50;
+                    Progresbar.Value = 100;
                     DisCon();
                 }
             }
@@ -159,7 +159,7 @@ namespace BtC
                 {
                     serialPort.PortName = COMport;
                     serialPort.Open();
-                    Progresbar.Value = 50;
+                    Progresbar.Value = 100;
                     ReCon();
                 }
             }
@@ -355,7 +355,7 @@ namespace BtC
             SEVEN.Enabled = false;
             EIGHT.Enabled = false;
             Progresbar.SliderColor = Color.Red;
-            Progresbar.Value = 0;
+            Progresbar.Value = 100;
         }
 
         // Tells what to do if button is ON.

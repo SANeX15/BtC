@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new BtC.CustomControls_ModernButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AutoCon = new System.Windows.Forms.CheckBox();
             this.NewNameOf8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.NewNameOf7 = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.ClearNamesBtn = new BtC.CustomControls_ModernButton();
             this.NewNameOf1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.AutoCon = new System.Windows.Forms.CheckBox();
             this.TitlebarPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +130,22 @@
             this.groupBox1.Size = new System.Drawing.Size(254, 359);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // AutoCon
+            // 
+            this.AutoCon.AutoSize = true;
+            this.AutoCon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AutoCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AutoCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AutoCon.ForeColor = System.Drawing.Color.White;
+            this.AutoCon.Location = new System.Drawing.Point(9, 284);
+            this.AutoCon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AutoCon.Name = "AutoCon";
+            this.AutoCon.Size = new System.Drawing.Size(216, 20);
+            this.AutoCon.TabIndex = 19;
+            this.AutoCon.Text = "Auto Connect to previous device";
+            this.AutoCon.UseVisualStyleBackColor = true;
+            this.AutoCon.CheckedChanged += new System.EventHandler(this.AutoCon_CheckedChanged);
             // 
             // NewNameOf8
             // 
@@ -342,22 +358,6 @@
             this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name Of 1";
-            // 
-            // AutoCon
-            // 
-            this.AutoCon.AutoSize = true;
-            this.AutoCon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AutoCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AutoCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoCon.ForeColor = System.Drawing.Color.White;
-            this.AutoCon.Location = new System.Drawing.Point(9, 284);
-            this.AutoCon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AutoCon.Name = "AutoCon";
-            this.AutoCon.Size = new System.Drawing.Size(216, 20);
-            this.AutoCon.TabIndex = 19;
-            this.AutoCon.Text = "Auto Connect to previous device";
-            this.AutoCon.UseVisualStyleBackColor = true;
-            this.AutoCon.CheckedChanged += new System.EventHandler(this.AutoCon_CheckedChanged);
             // 
             // SettingsForm
             // 
