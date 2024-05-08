@@ -29,7 +29,6 @@ Bluetooth Control or BtC is a DotNet Framework based application for controlling
  E. Right Click any buttons from 1-8 and select Button Settings to change their name and ON/OFF commands. (Button Settings, Screenshot #2)
 
 
-IMPORTANT NEWS :
-As BtC is now usable on boards much better than the UNO R3 board which was previously used, I think that BtC has reach its final stage and doesn't require to be updated anymore.So, till _something interesting happens_, I am calling of further development of BtC but bugs will still be solved.
+**IMPORTANT NEWS : As BtC is now usable on boards much better than the UNO R3 board which was previously used, I think that BtC has reach its final stage and doesn't require to be updated anymore.So, till _something interesting happens_, I am calling of further development of BtC but bugs will still be solved.**
 
 *Thank you for reading this and using my application. I hope it aids you with ease of access to your appliances*
