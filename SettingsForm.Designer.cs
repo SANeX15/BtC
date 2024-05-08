@@ -31,28 +31,17 @@
             this.TitlebarPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new BtC.CustomControls_ModernButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.AutoCon = new System.Windows.Forms.CheckBox();
-            this.NewNameOf8 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.NewNameOf7 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.NewNameOf6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.NewNameOf5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NewNameOf4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.NewNameOf3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.NewNameOf2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.NameTxtboxContainer = new System.Windows.Forms.GroupBox();
+            this.NameTxtBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ONTxtBox = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.OFFTxtBox = new System.Windows.Forms.TextBox();
             this.SaveBtn = new BtC.CustomControls_ModernButton();
-            this.ClearNamesBtn = new BtC.CustomControls_ModernButton();
-            this.NewNameOf1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.TitlebarPanel.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.NameTxtboxContainer.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitlebarPanel
@@ -64,7 +53,7 @@
             this.TitlebarPanel.Location = new System.Drawing.Point(0, 0);
             this.TitlebarPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TitlebarPanel.Name = "TitlebarPanel";
-            this.TitlebarPanel.Size = new System.Drawing.Size(254, 15);
+            this.TitlebarPanel.Size = new System.Drawing.Size(275, 15);
             this.TitlebarPanel.TabIndex = 2;
             this.TitlebarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitlebarPanel_MouseDown);
             // 
@@ -72,11 +61,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Settings";
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
@@ -92,213 +81,97 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(209, 0);
+            this.button1.Location = new System.Drawing.Point(234, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 15);
+            this.button1.Size = new System.Drawing.Size(41, 15);
             this.button1.TabIndex = 0;
             this.button1.TextColor = System.Drawing.Color.White;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox1
+            // NameTxtboxContainer
             // 
-            this.groupBox1.Controls.Add(this.AutoCon);
-            this.groupBox1.Controls.Add(this.NewNameOf8);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.NewNameOf7);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.NewNameOf6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.NewNameOf5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.NewNameOf4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.NewNameOf3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.NewNameOf2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.SaveBtn);
-            this.groupBox1.Controls.Add(this.ClearNamesBtn);
-            this.groupBox1.Controls.Add(this.NewNameOf1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(0, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 359);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
+            this.NameTxtboxContainer.Controls.Add(this.NameTxtBox);
+            this.NameTxtboxContainer.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameTxtboxContainer.ForeColor = System.Drawing.Color.White;
+            this.NameTxtboxContainer.Location = new System.Drawing.Point(11, 25);
+            this.NameTxtboxContainer.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.NameTxtboxContainer.Name = "NameTxtboxContainer";
+            this.NameTxtboxContainer.Padding = new System.Windows.Forms.Padding(10, 0, 10, 3);
+            this.NameTxtboxContainer.Size = new System.Drawing.Size(252, 50);
+            this.NameTxtboxContainer.TabIndex = 4;
+            this.NameTxtboxContainer.TabStop = false;
+            this.NameTxtboxContainer.Text = "Name of the Button";
             // 
-            // AutoCon
+            // NameTxtBox
             // 
-            this.AutoCon.AutoSize = true;
-            this.AutoCon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AutoCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoCon.ForeColor = System.Drawing.Color.White;
-            this.AutoCon.Location = new System.Drawing.Point(9, 284);
-            this.AutoCon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AutoCon.Name = "AutoCon";
-            this.AutoCon.Size = new System.Drawing.Size(219, 20);
-            this.AutoCon.TabIndex = 19;
-            this.AutoCon.Text = "Auto Connect to previous device";
-            this.AutoCon.UseVisualStyleBackColor = true;
-            this.AutoCon.CheckedChanged += new System.EventHandler(this.AutoCon_CheckedChanged);
+            this.NameTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.NameTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NameTxtBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NameTxtBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameTxtBox.ForeColor = System.Drawing.Color.White;
+            this.NameTxtBox.Location = new System.Drawing.Point(10, 20);
+            this.NameTxtBox.Name = "NameTxtBox";
+            this.NameTxtBox.Size = new System.Drawing.Size(232, 26);
+            this.NameTxtBox.TabIndex = 0;
+            this.NameTxtBox.TextChanged += new System.EventHandler(this.NameTxtBox_TextChanged);
             // 
-            // NewNameOf8
+            // groupBox2
             // 
-            this.NewNameOf8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf8.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf8.Location = new System.Drawing.Point(83, 251);
-            this.NewNameOf8.Name = "NewNameOf8";
-            this.NewNameOf8.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf8.TabIndex = 18;
-            this.NewNameOf8.TextChanged += new System.EventHandler(this.NewNameOf8_TextChanged);
+            this.groupBox2.Controls.Add(this.ONTxtBox);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(11, 82);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 3);
+            this.groupBox2.Size = new System.Drawing.Size(120, 50);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ON command";
             // 
-            // label9
+            // ONTxtBox
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 256);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 16);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Name Of 8";
+            this.ONTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.ONTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ONTxtBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ONTxtBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ONTxtBox.ForeColor = System.Drawing.Color.White;
+            this.ONTxtBox.Location = new System.Drawing.Point(10, 20);
+            this.ONTxtBox.MaxLength = 10;
+            this.ONTxtBox.Name = "ONTxtBox";
+            this.ONTxtBox.Size = new System.Drawing.Size(100, 26);
+            this.ONTxtBox.TabIndex = 0;
+            this.ONTxtBox.TextChanged += new System.EventHandler(this.ONTxtBox_TextChanged);
             // 
-            // NewNameOf7
+            // groupBox3
             // 
-            this.NewNameOf7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf7.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf7.Location = new System.Drawing.Point(83, 219);
-            this.NewNameOf7.Name = "NewNameOf7";
-            this.NewNameOf7.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf7.TabIndex = 16;
-            this.NewNameOf7.TextChanged += new System.EventHandler(this.NewNameOf7_TextChanged);
+            this.groupBox3.Controls.Add(this.OFFTxtBox);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(143, 82);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 3);
+            this.groupBox3.Size = new System.Drawing.Size(120, 50);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "OFF command";
             // 
-            // label8
+            // OFFTxtBox
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 224);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 16);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Name Of 7";
-            // 
-            // NewNameOf6
-            // 
-            this.NewNameOf6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf6.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf6.Location = new System.Drawing.Point(83, 187);
-            this.NewNameOf6.Name = "NewNameOf6";
-            this.NewNameOf6.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf6.TabIndex = 14;
-            this.NewNameOf6.TextChanged += new System.EventHandler(this.NewNameOf6_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 192);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 16);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Name Of 6";
-            // 
-            // NewNameOf5
-            // 
-            this.NewNameOf5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf5.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf5.Location = new System.Drawing.Point(83, 155);
-            this.NewNameOf5.Name = "NewNameOf5";
-            this.NewNameOf5.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf5.TabIndex = 12;
-            this.NewNameOf5.TextChanged += new System.EventHandler(this.NewNameOf5_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 16);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Name Of 5";
-            // 
-            // NewNameOf4
-            // 
-            this.NewNameOf4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf4.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf4.Location = new System.Drawing.Point(83, 123);
-            this.NewNameOf4.Name = "NewNameOf4";
-            this.NewNameOf4.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf4.TabIndex = 10;
-            this.NewNameOf4.TextChanged += new System.EventHandler(this.NewNameOf4_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Name Of 4";
-            // 
-            // NewNameOf3
-            // 
-            this.NewNameOf3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf3.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf3.Location = new System.Drawing.Point(83, 91);
-            this.NewNameOf3.Name = "NewNameOf3";
-            this.NewNameOf3.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf3.TabIndex = 8;
-            this.NewNameOf3.TextChanged += new System.EventHandler(this.NewNameOf3_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 16);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Name Of 3";
-            // 
-            // NewNameOf2
-            // 
-            this.NewNameOf2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf2.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf2.Location = new System.Drawing.Point(83, 58);
-            this.NewNameOf2.Name = "NewNameOf2";
-            this.NewNameOf2.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf2.TabIndex = 6;
-            this.NewNameOf2.TextChanged += new System.EventHandler(this.NewNameOf2_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Name Of 2";
+            this.OFFTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.OFFTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OFFTxtBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OFFTxtBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OFFTxtBox.ForeColor = System.Drawing.Color.White;
+            this.OFFTxtBox.Location = new System.Drawing.Point(10, 20);
+            this.OFFTxtBox.MaxLength = 10;
+            this.OFFTxtBox.Name = "OFFTxtBox";
+            this.OFFTxtBox.Size = new System.Drawing.Size(100, 26);
+            this.OFFTxtBox.TabIndex = 0;
+            this.OFFTxtBox.TextChanged += new System.EventHandler(this.OFFTxtBox_TextChanged);
             // 
             // SaveBtn
             // 
@@ -307,68 +180,33 @@
             this.SaveBtn.BorderColor = System.Drawing.Color.Gray;
             this.SaveBtn.BorderRadius = 5;
             this.SaveBtn.BorderSize = 1;
+            this.SaveBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.Location = new System.Drawing.Point(129, 311);
+            this.SaveBtn.Location = new System.Drawing.Point(0, 148);
             this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(120, 40);
+            this.SaveBtn.Size = new System.Drawing.Size(275, 40);
             this.SaveBtn.TabIndex = 4;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.TextColor = System.Drawing.Color.White;
             this.SaveBtn.UseVisualStyleBackColor = false;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
-            // ClearNamesBtn
-            // 
-            this.ClearNamesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClearNamesBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClearNamesBtn.BorderColor = System.Drawing.Color.Gray;
-            this.ClearNamesBtn.BorderRadius = 5;
-            this.ClearNamesBtn.BorderSize = 1;
-            this.ClearNamesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClearNamesBtn.ForeColor = System.Drawing.Color.White;
-            this.ClearNamesBtn.Location = new System.Drawing.Point(3, 311);
-            this.ClearNamesBtn.Name = "ClearNamesBtn";
-            this.ClearNamesBtn.Size = new System.Drawing.Size(120, 40);
-            this.ClearNamesBtn.TabIndex = 3;
-            this.ClearNamesBtn.Text = "Clear All";
-            this.ClearNamesBtn.TextColor = System.Drawing.Color.White;
-            this.ClearNamesBtn.UseVisualStyleBackColor = false;
-            this.ClearNamesBtn.Click += new System.EventHandler(this.ClearNamesBtn_Click);
-            // 
-            // NewNameOf1
-            // 
-            this.NewNameOf1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.NewNameOf1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewNameOf1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNameOf1.ForeColor = System.Drawing.Color.White;
-            this.NewNameOf1.Location = new System.Drawing.Point(83, 26);
-            this.NewNameOf1.Name = "NewNameOf1";
-            this.NewNameOf1.Size = new System.Drawing.Size(164, 26);
-            this.NewNameOf1.TabIndex = 2;
-            this.NewNameOf1.TextChanged += new System.EventHandler(this.NewNameOf1_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name Of 1";
-            // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(254, 374);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(275, 188);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.NameTxtboxContainer);
             this.Controls.Add(this.TitlebarPanel);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.SaveBtn);
+            this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -377,10 +215,15 @@
             this.Text = "Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SettingsForm_KeyDown);
             this.TitlebarPanel.ResumeLayout(false);
             this.TitlebarPanel.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.NameTxtboxContainer.ResumeLayout(false);
+            this.NameTxtboxContainer.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -390,25 +233,12 @@
         private System.Windows.Forms.Panel TitlebarPanel;
         private System.Windows.Forms.Label label1;
         private CustomControls_ModernButton button1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox NewNameOf3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox NewNameOf2;
-        private System.Windows.Forms.Label label3;
         private CustomControls_ModernButton SaveBtn;
-        private CustomControls_ModernButton ClearNamesBtn;
-        private System.Windows.Forms.TextBox NewNameOf1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox NewNameOf8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox NewNameOf7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox NewNameOf6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox NewNameOf5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox NewNameOf4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox AutoCon;
+        private System.Windows.Forms.GroupBox NameTxtboxContainer;
+        private System.Windows.Forms.TextBox NameTxtBox;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox ONTxtBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox OFFTxtBox;
     }
 }

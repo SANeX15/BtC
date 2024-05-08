@@ -142,5 +142,251 @@ namespace BtC.Properties {
                 this["LastConCOM"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("A")]
+        public string ONE_ON {
+            get {
+                return ((string)(this["ONE_ON"]));
+            }
+            set {
+                this["ONE_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("B")]
+        public string TWO_ON {
+            get {
+                return ((string)(this["TWO_ON"]));
+            }
+            set {
+                this["TWO_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C")]
+        public string THREE_ON {
+            get {
+                return ((string)(this["THREE_ON"]));
+            }
+            set {
+                this["THREE_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D")]
+        public string FOUR_ON {
+            get {
+                return ((string)(this["FOUR_ON"]));
+            }
+            set {
+                this["FOUR_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("E")]
+        public string FIVE_ON {
+            get {
+                return ((string)(this["FIVE_ON"]));
+            }
+            set {
+                this["FIVE_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("F")]
+        public string SIX_ON {
+            get {
+                return ((string)(this["SIX_ON"]));
+            }
+            set {
+                this["SIX_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("G")]
+        public string SEVEN_ON {
+            get {
+                return ((string)(this["SEVEN_ON"]));
+            }
+            set {
+                this["SEVEN_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("H")]
+        public string EIGHT_ON {
+            get {
+                return ((string)(this["EIGHT_ON"]));
+            }
+            set {
+                this["EIGHT_ON"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("a")]
+        public string ONE_OFF {
+            get {
+                return ((string)(this["ONE_OFF"]));
+            }
+            set {
+                this["ONE_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("b")]
+        public string TWO_OFF {
+            get {
+                return ((string)(this["TWO_OFF"]));
+            }
+            set {
+                this["TWO_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c")]
+        public string THREE_OFF {
+            get {
+                return ((string)(this["THREE_OFF"]));
+            }
+            set {
+                this["THREE_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("d")]
+        public string FOUR_OFF {
+            get {
+                return ((string)(this["FOUR_OFF"]));
+            }
+            set {
+                this["FOUR_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("e")]
+        public string FIVE_OFF {
+            get {
+                return ((string)(this["FIVE_OFF"]));
+            }
+            set {
+                this["FIVE_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("f")]
+        public string SIX_OFF {
+            get {
+                return ((string)(this["SIX_OFF"]));
+            }
+            set {
+                this["SIX_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("g")]
+        public string SEVEN_OFF {
+            get {
+                return ((string)(this["SEVEN_OFF"]));
+            }
+            set {
+                this["SEVEN_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("h")]
+        public string EIGHT_OFF {
+            get {
+                return ((string)(this["EIGHT_OFF"]));
+            }
+            set {
+                this["EIGHT_OFF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25, 25, 25")]
+        public global::System.Drawing.Color DarkBackOFF {
+            get {
+                return ((global::System.Drawing.Color)(this["DarkBackOFF"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("WhiteSmoke")]
+        public global::System.Drawing.Color DarkText {
+            get {
+                return ((global::System.Drawing.Color)(this["DarkText"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 192, 0")]
+        public global::System.Drawing.Color ONColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ONColor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12, 12, 12")]
+        public global::System.Drawing.Color DarkWindow {
+            get {
+                return ((global::System.Drawing.Color)(this["DarkWindow"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 150, 0")]
+        public global::System.Drawing.Color ONBorder {
+            get {
+                return ((global::System.Drawing.Color)(this["ONBorder"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        public global::System.Drawing.Color OFFBorder {
+            get {
+                return ((global::System.Drawing.Color)(this["OFFBorder"]));
+            }
+        }
     }
 }

@@ -159,6 +159,7 @@
   <ItemGroup>
     <Content Include="BtC original.ico" />
     <Content Include="Resources\discon.png" />
+    <None Include="Resources\link.png" />
     <Content Include="Resources\Refresh.png" />
     <Content Include="Resources\settings.png" />
   </ItemGroup>

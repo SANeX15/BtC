@@ -32,5 +32,71 @@
     <Setting Name="LastConCOM" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="ONE_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">A</Value>
+    </Setting>
+    <Setting Name="TWO_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B</Value>
+    </Setting>
+    <Setting Name="THREE_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C</Value>
+    </Setting>
+    <Setting Name="FOUR_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D</Value>
+    </Setting>
+    <Setting Name="FIVE_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E</Value>
+    </Setting>
+    <Setting Name="SIX_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">F</Value>
+    </Setting>
+    <Setting Name="SEVEN_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G</Value>
+    </Setting>
+    <Setting Name="EIGHT_ON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">H</Value>
+    </Setting>
+    <Setting Name="ONE_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">a</Value>
+    </Setting>
+    <Setting Name="TWO_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">b</Value>
+    </Setting>
+    <Setting Name="THREE_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c</Value>
+    </Setting>
+    <Setting Name="FOUR_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d</Value>
+    </Setting>
+    <Setting Name="FIVE_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">e</Value>
+    </Setting>
+    <Setting Name="SIX_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">f</Value>
+    </Setting>
+    <Setting Name="SEVEN_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">g</Value>
+    </Setting>
+    <Setting Name="EIGHT_OFF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">h</Value>
+    </Setting>
+    <Setting Name="DarkBackOFF" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">25, 25, 25</Value>
+    </Setting>
+    <Setting Name="DarkText" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">WhiteSmoke</Value>
+    </Setting>
+    <Setting Name="ONColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">0, 192, 0</Value>
+    </Setting>
+    <Setting Name="DarkWindow" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">12, 12, 12</Value>
+    </Setting>
+    <Setting Name="ONBorder" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">0, 150, 0</Value>
+    </Setting>
+    <Setting Name="OFFBorder" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">Gray</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
