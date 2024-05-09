@@ -18,13 +18,13 @@ Bluetooth Control or BtC is a DotNet Framework based application for controlling
  - DotNet Framework 4.8 runtime.
  - HC05 bluetooth connection setup on a Serial Port.
  - UNO R3 or other boards, with appropriate code, setup with a HC05 or any other bluetooth module and linked to preferred appliances.
- - (TIP) Code for the Arduino UNO R3 is included in the release [v2.0.0](https://github.com/SANeX15/BtC/releases/tag/2.0.0) as BtC_UNOR#_sketch.ino.
+ - (TIP) Code for the Arduino UNO R3 is included in the release [v2.0.0](https://github.com/SANeX15/BtC/releases/tag/2.0.0) as BtC_UNOR3_sketch.ino.
 
 ## Instructions
  1. Turn on Bluetooth, connect to HC05 and link it to a Serial Port. -(details will be uploaded soon)
  2. Start BtC and select previously linked Serial Port.
  3. Wait till connection suceeds (when the text turns green and shows 'Connected').
- 4. Use Buttons 1-8 to toggle appliances connected to Arduino Uno R3.
+ 4. Use Buttons 1-8 to toggle appliances connected to the board.
 
  E. Right Click any buttons from 1-8 and select Button Settings to change their name and ON/OFF commands. (Button Settings, Screenshot #2)
 
