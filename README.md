@@ -5,6 +5,7 @@
 Bluetooth Control or BtC is a DotNet Framework based application for controlling appliances upto 8 ports on Uno R3 or [more boards](https://github.com/SANeX15/BtC/releases/tag/2.0.0) via a Serial-to-Bluetooth connection on a Windows-based device.
 
 ## Screenshots
+Will be uploaded soon.
 
 ## Features
  - Modifiable button names (Button Settings, Screenshot #2).
@@ -13,12 +14,12 @@ Bluetooth Control or BtC is a DotNet Framework based application for controlling
  - Easy-To-Use User Interface (Screenshots above).
  - Automatic connection ability (Screenshots above).
 
-## Requirements
+## Prerequisites / Requirements
  - A Windows 7+ device with Bluetooth.
  - DotNet Framework 4.8 runtime.
  - HC05 bluetooth connection setup on a Serial Port.
  - UNO R3 or other boards, with appropriate code, setup with a HC05 or any other bluetooth module and linked to preferred appliances.
- - (TIP) Code for the Arduino UNO R3 is included in the release [v2.0.0](https://github.com/SANeX15/BtC/releases/tag/2.0.0) as BtC_UNOR3_sketch.ino.
+ - (TIP) Code for the Arduino UNO R3 is released as [BtC 4 UNO](https://github.com/SANeX15/BtC/releases/tag/BOARDCODE).
 
 ## Instructions
  1. Turn on Bluetooth, connect to HC05 and link it to a Serial Port. -(details will be uploaded soon)
@@ -29,6 +30,10 @@ Bluetooth Control or BtC is a DotNet Framework based application for controlling
  E. Right Click any buttons from 1-8 and select Button Settings to change their name and ON/OFF commands. (Button Settings, Screenshot #2)
 
 
-**IMPORTANT NEWS : As BtC is now usable on boards much better than the UNO R3 board which was previously used, I think that BtC has reach its final stage and doesn't require to be updated anymore.So, till _something interesting happens_, I am calling of further development of BtC but bugs will still be solved.**
+IMPORTANT NEWS : As BtC is now usable on boards much better than the UNO R3 board which was previously used, I think that BtC has reach its final stage and doesn't require to be updated anymore.So, till _something interesting happens_, I am halting further development of BtC but bugs will still be solved.
+
+Well, something interesting did happen, And i am back, for a few mere seconds of your time. There was a major flaw in the code that made BtC unresponsive during connection time or even while auto connecting. I R/D'd it and more than one flaw, so i revamped the user interface and changed the code. Well, now that is fixed in the new 2.5.0 update found in releases.
+
+Till further notice or _flaws_, bye.
 
 *Thank you for reading this and using my application. I hope it aids you with ease of access to your appliances*
