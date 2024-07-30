@@ -9,14 +9,14 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace BtC
+namespace SANeX
 {
-    public class CustomControls_ModernButton : Button
+    public class CC_ModernButton : Button
     {
         //Fields
         private int borderSize = 0;
         private int borderRadius = 0;
-        private Color borderColor = Color.PaleVioletRed;
+        private Color borderColor = Color.Red;
 
         //Properties
         [Category("CCMB")]
@@ -67,12 +67,12 @@ namespace BtC
         }
 
         //Constructor
-        public CustomControls_ModernButton()
+        public CC_ModernButton()
         {
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             this.Size = new Size(150, 40);
-            this.BackColor = Color.MediumSlateBlue;
+            this.BackColor = Color.FromArgb(255,0,51);
             this.ForeColor = Color.White;
             this.Resize += new EventHandler(Button_Resize);
         }

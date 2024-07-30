@@ -30,14 +30,14 @@
         {
             this.TitlebarPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new BtC.CustomControls_ModernButton();
+            this.button1 = new SANeX.CC_ModernButton();
             this.NameTxtboxContainer = new System.Windows.Forms.GroupBox();
             this.NameTxtBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ONTxtBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.OFFTxtBox = new System.Windows.Forms.TextBox();
-            this.SaveBtn = new BtC.CustomControls_ModernButton();
+            this.SaveBtn = new SANeX.CC_ModernButton();
             this.TitlebarPanel.SuspendLayout();
             this.NameTxtboxContainer.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -232,8 +232,8 @@
 
         private System.Windows.Forms.Panel TitlebarPanel;
         private System.Windows.Forms.Label label1;
-        private CustomControls_ModernButton button1;
-        private CustomControls_ModernButton SaveBtn;
+        private SANeX.CC_ModernButton button1;
+        private SANeX.CC_ModernButton SaveBtn;
         private System.Windows.Forms.GroupBox NameTxtboxContainer;
         private System.Windows.Forms.TextBox NameTxtBox;
         private System.Windows.Forms.GroupBox groupBox2;

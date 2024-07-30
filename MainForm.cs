@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using SANeX;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace BtC
@@ -90,6 +91,8 @@ namespace BtC
         // Auto Connection Enabled ? checker
         private bool AutoConBool;
 
+        BackgroundWorker worker = new BackgroundWorker();
+
         public MainForm()
         {
             InitializeComponent();
@@ -102,33 +105,24 @@ namespace BtC
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((ScrWidth - BtCWidth) - (((ScrWidth / 2) / 2) / 2), (ScrHeight - BtCHeight) / 2);
             ThemeCheck();
+            worker.DoWork += DoWork;
+
             serialPort.BaudRate = 9600;
             serialPort.Parity = Parity.None;
             serialPort.DataBits = 8;
             serialPort.StopBits = StopBits.One;
             GetAvailablePorts();
+
             sTimer.Elapsed += new ElapsedEventHandler(sTimer_Elapsed);
             sTimer.Interval = 2000;
             sTimer.Enabled = true;
             sTimer.Start();
+
             // Setting the app to DISCONnected mode.
             DisCon();
         }
 
-        private void ThemeCheck()
-        {
-            DarkMode = ShouldSystemUseDarkMode();
-
-            OnBack = Properties.Settings.Default.ONColor;
-            OnBorder = Properties.Settings.Default.ONBorder;
-            OnText = Properties.Settings.Default.DarkText;
-            OffBack = Properties.Settings.Default.DarkBackOFF;
-            OffBorder = Properties.Settings.Default.DarkBackOFF;
-            OffText = Properties.Settings.Default.DarkText;
-            Window = Properties.Settings.Default.DarkWindow;
-        }
-
-        private void MainForm_Shown(object sender, EventArgs e)
+        private void DoWork(object sender, DoWorkEventArgs e)
         {
             // Call Custom Names if set.
             LoadSettings();
@@ -146,6 +140,19 @@ namespace BtC
                     AutoConMode();
                     break;
             }
+        }
+
+        private void ThemeCheck()
+        {
+            DarkMode = ShouldSystemUseDarkMode();
+
+            OnBack = Properties.Settings.Default.ONColor;
+            OnBorder = Properties.Settings.Default.ONBorder;
+            OnText = Properties.Settings.Default.DarkText;
+            OffBack = Properties.Settings.Default.DarkBackOFF;
+            OffBorder = Properties.Settings.Default.DarkBackOFF;
+            OffText = Properties.Settings.Default.DarkText;
+            Window = Properties.Settings.Default.DarkWindow;
         }
 
         private void sTimer_Elapsed(object source, ElapsedEventArgs e)
@@ -177,7 +184,7 @@ namespace BtC
         public void GetAvailablePorts()
         {
             SPDropDown.Items.Clear();
-            
+
             // Checking and fetching all Serial Ports from system and arranging in an array.
             string[] ports = SerialPort.GetPortNames();
 
@@ -229,6 +236,20 @@ namespace BtC
             }
         }
 
+        private void IndicatorState(int state)
+        {
+            Progresbar.Value = 100;
+            switch (state)
+            {
+                case 0:
+                    Progresbar.ForeColor = Color.Red;
+                    break;
+                case 1:
+                    Progresbar.ForeColor = Color.Lime;
+                    break;
+            }
+        }
+
         // Connector for serial port
         private void Connect()
         {
@@ -241,8 +262,7 @@ namespace BtC
                 {
                     serialPort.PortName = COMport;
                     serialPort.Open();
-                    Progresbar.ForeColor = OnBack;
-                    Progresbar.Value = 100;
+                    IndicatorState(1);
                     ReCon();
                 }
             }
@@ -278,13 +298,13 @@ namespace BtC
         }
 
         // Sends a Byte to the Serial Port. Required part of this app.
-        private static void SendByte(string message)
+        private static void SendByte(string msg)
         {
             // Checks if serial port is open 
             if (serialPort.IsOpen)
             {
                 //Sends a string to the serial port
-                serialPort.Write(message.ToString());
+                serialPort.Write(msg.ToString());
             }
             else
             {
@@ -577,8 +597,6 @@ namespace BtC
         // To enable the buttons if connected.
         private void ReCon()
         {
-            label2.Text = "⦿ Connected";
-            label2.ForeColor = Color.FromArgb(0, 192, 0);
             ONE.Enabled = true;
             TWO.Enabled = true;
             THREE.Enabled = true;
@@ -587,15 +605,12 @@ namespace BtC
             SIX.Enabled = true;
             SEVEN.Enabled = true;
             EIGHT.Enabled = true;
-            Progresbar.SliderColor = Color.Lime;
-            Progresbar.Value = 100;
+            IndicatorState(1);
         }
 
         // To disable the buttons if not connected.
         private void DisCon()
         {
-            label2.Text = "⦿ Disconnected";
-            label2.ForeColor = Color.Red;
             ONE.Enabled = false;
             TWO.Enabled = false;
             THREE.Enabled = false;
@@ -604,105 +619,32 @@ namespace BtC
             SIX.Enabled = false;
             SEVEN.Enabled = false;
             EIGHT.Enabled = false;
-            Progresbar.SliderColor = Color.Red;
-            Progresbar.Value = 100;
+            OffBtn(ONE);
+            OffBtn(TWO);
+            OffBtn(THREE);
+            OffBtn(FOUR);
+            OffBtn(FIVE);
+            OffBtn(SIX);
+            OffBtn(SEVEN);
+            OffBtn(EIGHT);
+            IndicatorState(0);
             SPDropDown.Texts = "Choose COM port";
         }
 
         // Tells what to do if button is ON.
-        private void OnBtn(int btn)
+        private void OnBtn(CC_ModernButton btn)
         {
-            switch (btn)
-            {
-                case 1:
-                    ONE.ForeColor = OnText;
-                    ONE.BackColor = OnBack;
-                    ONE.FlatAppearance.BorderColor = OnBorder;
-                    break;
-                case 2:
-                    TWO.ForeColor = OnText;
-                    TWO.BackColor = OnBack;
-                    TWO.FlatAppearance.BorderColor = OnBorder;
-                    break;
-                case 3:
-                    THREE.ForeColor = OnText;
-                    THREE.BackColor = OnBack;
-                    THREE.FlatAppearance.BorderColor = OnBorder;
-                    break;
-                case 4:
-                    FOUR.ForeColor = OnText;
-                    FOUR.BackColor = OnBack;
-                    FOUR.FlatAppearance.BorderColor = OnBorder;
-                    break;
-                case 5:
-                    FIVE.ForeColor = OnText;
-                    FIVE.BackColor = OnBack;
-                    FIVE.FlatAppearance.BorderColor = OnBorder;
-                    break;
-                case 6:
-                    SIX.ForeColor = OnText;
-                    SIX.BackColor = OnBack;
-                    SIX.FlatAppearance.BorderColor = OnBorder;
-                    break;
-                case 7:
-                    SEVEN.ForeColor = OnText;
-                    SEVEN.BackColor = OnBack;
-                    SEVEN.FlatAppearance.BorderColor = OnBorder;
-                    break;
-                case 8:
-                    EIGHT.ForeColor = OnText;
-                    EIGHT.BackColor = OnBack;
-                    EIGHT.FlatAppearance.BorderColor = OnBorder;
-                    break;
-            }
+            btn.ForeColor = OnText;
+            btn.BackColor = OnBack;
+            btn.BorderColor = OnBorder;
         }
 
         // Tells what to do if button is OFF.
-        private void OffBtn(int btn)
+        private void OffBtn(CC_ModernButton btn)
         {
-            switch (btn)
-            {
-                case 1:
-                    ONE.ForeColor = OffText;
-                    ONE.BackColor = OffBack;
-                    ONE.FlatAppearance.BorderColor = OffBorder;
-                    break;
-                case 2:
-                    TWO.ForeColor = OffText;
-                    TWO.BackColor = OffBack;
-                    TWO.FlatAppearance.BorderColor = OffBack;
-                    break;
-                case 3:
-                    THREE.ForeColor = OffText;
-                    THREE.BackColor = OffBack;
-                    THREE.FlatAppearance.BorderColor = OffBack;
-                    break;
-                case 4:
-                    FOUR.ForeColor = OffText;
-                    FOUR.BackColor = OffBack;
-                    FOUR.FlatAppearance.BorderColor = OffBack;
-                    break;
-                case 5:
-                    FIVE.ForeColor = OffText;
-                    FIVE.BackColor = OffBack;
-                    FIVE.FlatAppearance.BorderColor = OffBack;
-                    break;
-                case 6:
-                    SIX.ForeColor = OffText;
-                    SIX.BackColor = OffBack;
-                    SIX.FlatAppearance.BorderColor = OffBack;
-                    break;
-                case 7:
-                    SEVEN.ForeColor = OffText;
-                    SEVEN.BackColor = OffBack;
-                    SEVEN.FlatAppearance.BorderColor = OffBack;
-                    break;
-                case 8:
-                    EIGHT.ForeColor = OffText;
-                    EIGHT.BackColor = OffBack;
-                    EIGHT.FlatAppearance.BorderColor = OffBack;
-                    break;
-            }
+            btn.ForeColor = OffText;
+            btn.BackColor = OffBack;
+            btn.BorderColor = OffBorder;
         }
         // Turns a button into a toggle.
         private void ONE_Click(object sender, EventArgs e)
@@ -757,9 +699,9 @@ namespace BtC
         {}
         
         // Calls the Settings form.
-        private void CallSettings(int btnID)
+        private void CallSettings(int id)
         {
-            Form settings = new SettingsForm(btnID);
+            Form settings = new SettingsForm(id);
             settings.FormClosed += delegate
             {
                 LoadSettings();
@@ -818,8 +760,8 @@ namespace BtC
         //Refreshes the connection if Clicked.
         private void Refresh_Click(object sender, EventArgs e)
         {
-            Connect();
             SPDropDown.SelectedItem = COMport;
+            Connect();
         }
 
         private void DisconBtn_Click(object sender, EventArgs e)
@@ -881,12 +823,12 @@ namespace BtC
                         case true:
                             is1on = false;
                             SendByte(ONE_OFF);
-                            OffBtn(1);
+                            OffBtn(ONE);
                             break;
                         case false:
                             is1on = true;
                             SendByte(ONE_ON);
-                            OnBtn(1);
+                            OnBtn(ONE);
                             break;
                     }
                     break;
@@ -896,12 +838,12 @@ namespace BtC
                         case true:
                             is2on = false;
                             SendByte(TWO_OFF);
-                            OffBtn(2);
+                            OffBtn(TWO);
                             break;
                         case false:
                             is2on = true;
                             SendByte(TWO_ON);
-                            OnBtn(2);
+                            OnBtn(TWO);
                             break;
                     }
                     break;
@@ -911,12 +853,12 @@ namespace BtC
                         case true:
                             is3on = false;
                             SendByte(THREE_OFF);
-                            OffBtn(3);
+                            OffBtn(THREE);
                             break;
                         case false:
                             is3on = true;
                             SendByte(THREE_ON);
-                            OnBtn(3);
+                            OnBtn(THREE);
                             break;
                     }
                     break;
@@ -926,12 +868,12 @@ namespace BtC
                         case true:
                             is4on = false;
                             SendByte(FOUR_OFF);
-                            OffBtn(4);
+                            OffBtn(FOUR);
                             break;
                         case false:
                             is4on = true;
                             SendByte(FOUR_ON);
-                            OnBtn(4);
+                            OnBtn(FOUR);
                             break;
                     }
                     break;
@@ -941,12 +883,12 @@ namespace BtC
                         case true:
                             is5on = false;
                             SendByte(FIVE_OFF);
-                            OffBtn(5);
+                            OffBtn(FIVE);
                             break;
                         case false:
                             is5on = true;
                             SendByte(FIVE_ON);
-                            OnBtn(5);
+                            OnBtn(FIVE);
                             break;
                     }
                     break;
@@ -956,12 +898,12 @@ namespace BtC
                         case true:
                             is6on = false;
                             SendByte(SIX_OFF);
-                            OffBtn(6);
+                            OffBtn(SIX);
                             break;
                         case false:
                             is6on = true;
                             SendByte(SIX_ON);
-                            OnBtn(6);
+                            OnBtn(SIX);
                             break;
                     }
                     break;
@@ -971,12 +913,12 @@ namespace BtC
                         case true:
                             is7on = false;
                             SendByte(SEVEN_OFF);
-                            OffBtn(7);
+                            OffBtn(SEVEN);
                             break;
                         case false:
                             is7on = true;
                             SendByte(SEVEN_ON);
-                            OnBtn(7);
+                            OnBtn(SEVEN);
                             break;
                     }
                     break;
@@ -986,12 +928,12 @@ namespace BtC
                         case true:
                             is8on = false;
                             SendByte(EIGHT_OFF);
-                            OffBtn(8);
+                            OffBtn(EIGHT);
                             break;
                         case false:
                             is8on = true;
                             SendByte(EIGHT_ON);
-                            OnBtn(8);
+                            OnBtn(EIGHT);
                             break;
                     }
                     break;

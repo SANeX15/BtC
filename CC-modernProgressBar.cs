@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace BtC
+namespace SANeX
 {
     public enum TextPosition
     {
@@ -20,7 +20,7 @@ namespace BtC
         None
     }
 
-    class CustomControls_ModernProgressBar : ProgressBar
+    class CC_ModernProgressBar : ProgressBar
     {
         //Fields
         private Color channelColor = Color.LightSteelBlue;
@@ -38,7 +38,7 @@ namespace BtC
         private bool stopPainting = false;
 
         //Constructor
-        public CustomControls_ModernProgressBar()
+        public CC_ModernProgressBar()
         {
             this.SetStyle(ControlStyles.UserPaint, true);
             this.ForeColor = Color.White;

@@ -25,7 +25,7 @@
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <ApplicationVersion>2.0.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -89,14 +89,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls-ModernButton.cs">
+    <Compile Include="CC-modernProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CC_modernButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomControls-ModernDropDown.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomControls-ModernProgressBar.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
@@ -158,8 +158,10 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="BtC original.ico" />
+    <None Include="Resources\Close.png" />
     <Content Include="Resources\discon.png" />
     <None Include="Resources\link.png" />
+    <None Include="Resources\minimise.png" />
     <Content Include="Resources\Refresh.png" />
     <Content Include="Resources\settings.png" />
   </ItemGroup>
