@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using SANeX;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace BtC
 {
@@ -26,11 +18,6 @@ namespace BtC
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-
-        //Code to grab App Theme from Windows Settings
-        [DllImport("UXTheme.dll", SetLastError = true, EntryPoint = "#138")]
-        public static extern bool ShouldSystemUseDarkMode();
-        public bool DarkMode;
 
         // Color variables for buttons (ON & OFF).
         private Color OnBack;
@@ -104,7 +91,7 @@ namespace BtC
             int BtCHeight = this.Height;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((ScrWidth - BtCWidth) - (((ScrWidth / 2) / 2) / 2), (ScrHeight - BtCHeight) / 2);
-            ThemeCheck();
+            SetTheme();
             worker.DoWork += DoWork;
 
             serialPort.BaudRate = 9600;
@@ -142,10 +129,8 @@ namespace BtC
             }
         }
 
-        private void ThemeCheck()
+        private void SetTheme()
         {
-            DarkMode = ShouldSystemUseDarkMode();
-
             OnBack = Properties.Settings.Default.ONColor;
             OnBorder = Properties.Settings.Default.ONBorder;
             OnText = Properties.Settings.Default.DarkText;
@@ -270,10 +255,10 @@ namespace BtC
             catch (Exception e)
             {
                 // ERROR name : Semaphore Timeout. This one will require instructions.
-                if (e.ToString().Contains("timeout"))
+                if (e is TimeoutException)
                 {
                     // For the recurring "Semaphore Timeout" error.
-                    MessageBox.Show("Listen carefully, Restart (Turn OFF & again turn ON) your desktop's BlueTooth. Then click the refresh.", "Timed out", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Connection Timed Out\n The following instructions are to be read carefully\n 1. Restart (Turn OFF & again turn ON) your device's BlueTooth.\n 2. Click Refresh Connection (2nd Button on the Bottom Toolbar).", "Exception Get: TimeOut", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     // Close the serial port to avoid other possible exceptions.
                     serialPort.Close();
@@ -281,18 +266,9 @@ namespace BtC
                     // Calls Disconnection State of UI.
                     DisCon();
                 }
-
-                // Else just show what the error is.
-                else
+                else if(e is NullReferenceException)
                 {
-                    // For any other unknown error.
-                    MessageBox.Show(e.Message, "There seems to be a PROBLEM !!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    // Close the serial port to avoid other possible exceptions.
-                    serialPort.Close();
-
-                    // Calls Disconnection State of UI.
-                    DisCon();
+                    MessageBox.Show("Check whether you have selected a COM port in the dropdown below.", "Exception Get: NULL", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -582,18 +558,6 @@ namespace BtC
             SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
 
-        // DA BIG RED BUTTON to close the form.
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        // DA BIG YELLOW BUTTON to minimise the form.
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         // To enable the buttons if connected.
         private void ReCon()
         {
@@ -611,14 +575,6 @@ namespace BtC
         // To disable the buttons if not connected.
         private void DisCon()
         {
-            ONE.Enabled = false;
-            TWO.Enabled = false;
-            THREE.Enabled = false;
-            FOUR.Enabled = false;
-            FIVE.Enabled = false;
-            SIX.Enabled = false;
-            SEVEN.Enabled = false;
-            EIGHT.Enabled = false;
             OffBtn(ONE);
             OffBtn(TWO);
             OffBtn(THREE);
@@ -627,6 +583,14 @@ namespace BtC
             OffBtn(SIX);
             OffBtn(SEVEN);
             OffBtn(EIGHT);
+            ONE.Enabled = false;
+            TWO.Enabled = false;
+            THREE.Enabled = false;
+            FOUR.Enabled = false;
+            FIVE.Enabled = false;
+            SIX.Enabled = false;
+            SEVEN.Enabled = false;
+            EIGHT.Enabled = false;
             IndicatorState(0);
             SPDropDown.Texts = "Choose COM port";
         }
@@ -693,10 +657,6 @@ namespace BtC
         {
             SignalCall(8);
         }
-
-        // Calls the Settings form.
-        private void Settings_Btn_Click(object sender, EventArgs e)
-        {}
         
         // Calls the Settings form.
         private void CallSettings(int id)
@@ -960,6 +920,20 @@ namespace BtC
         {
             AutoConBool = !AutoConBool;
             AutoConMode();
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Confirm your Exit ?", "??", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void MinBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

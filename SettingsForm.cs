@@ -22,6 +22,11 @@ namespace BtC
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        // Variables to store the global variables locally
+        private string globalName;
+        private string globalON;
+        private string globalOFF;
+
         // Variables to store the Button's information.
         private string bName;
         private string bON;
@@ -35,76 +40,78 @@ namespace BtC
         // Value for the referenced number from the MainForm.
         private int btnID = 0;
 
-        // Initialiser
+        // BackgroundWorker for loading variables.
+        BackgroundWorker worker;
+
+        // Initialiser.
         public SettingsForm(int btn)
         {
             InitializeComponent();
             btnID = btn;
+            LoadValues();
+            worker = new BackgroundWorker();
+            worker.DoWork += LoadData;
+            worker.RunWorkerAsync();
         }
 
-        // Loading Sequence
-        private void SettingsForm_Load(object sender, EventArgs e)
+        // Load values according to called integer.
+        private void LoadValues()
         {
-
             switch (btnID)
             {
                 case 1:
-                    NameTxtBox.Text = Properties.Settings.Default.ONE;
-                    ONTxtBox.Text = Properties.Settings.Default.ONE_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.ONE_OFF;
+                    globalName = Properties.Settings.Default.ONE;
+                    globalON = Properties.Settings.Default.ONE_ON;
+                    globalOFF = Properties.Settings.Default.ONE_OFF;
                     break;
                 case 2:
-                    NameTxtBox.Text = Properties.Settings.Default.TWO;
-                    ONTxtBox.Text = Properties.Settings.Default.TWO_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.TWO_OFF;
+                    globalName = Properties.Settings.Default.TWO;
+                    globalON = Properties.Settings.Default.TWO_ON;
+                    globalOFF = Properties.Settings.Default.TWO_OFF;
                     break;
                 case 3:
-                    NameTxtBox.Text = Properties.Settings.Default.THREE;
-                    ONTxtBox.Text = Properties.Settings.Default.THREE_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.THREE_OFF;
+                    globalName = Properties.Settings.Default.THREE;
+                    globalON = Properties.Settings.Default.THREE_ON;
+                    globalOFF = Properties.Settings.Default.THREE_OFF;
                     break;
                 case 4:
-                    NameTxtBox.Text = Properties.Settings.Default.FOUR;
-                    ONTxtBox.Text = Properties.Settings.Default.FOUR_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.FOUR_OFF;
+                    globalName = Properties.Settings.Default.FOUR;
+                    globalON = Properties.Settings.Default.FOUR_ON;
+                    globalOFF = Properties.Settings.Default.FOUR_OFF;
                     break;
                 case 5:
-                    NameTxtBox.Text = Properties.Settings.Default.FIVE;
-                    ONTxtBox.Text = Properties.Settings.Default.FIVE_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.FIVE_OFF;
+                    globalName = Properties.Settings.Default.FIVE;
+                    globalON = Properties.Settings.Default.FIVE_ON;
+                    globalOFF = Properties.Settings.Default.FIVE_OFF;
                     break;
                 case 6:
-                    NameTxtBox.Text = Properties.Settings.Default.SIX;
-                    ONTxtBox.Text = Properties.Settings.Default.SIX_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.SIX_OFF;
+                    globalName = Properties.Settings.Default.SIX;
+                    globalON = Properties.Settings.Default.SIX_ON;
+                    globalOFF = Properties.Settings.Default.SIX_OFF;
                     break;
                 case 7:
-                    NameTxtBox.Text = Properties.Settings.Default.SEVEN;
-                    ONTxtBox.Text = Properties.Settings.Default.SEVEN_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.SEVEN_OFF;
+                    globalName = Properties.Settings.Default.SEVEN;
+                    globalON = Properties.Settings.Default.SEVEN_ON;
+                    globalOFF = Properties.Settings.Default.SEVEN_OFF;
                     break;
                 case 8:
-                    NameTxtBox.Text = Properties.Settings.Default.EIGHT;
-                    ONTxtBox.Text = Properties.Settings.Default.EIGHT_ON;
-                    OFFTxtBox.Text = Properties.Settings.Default.EIGHT_OFF;
+                    globalName = Properties.Settings.Default.EIGHT;
+                    globalON = Properties.Settings.Default.EIGHT_ON;
+                    globalOFF = Properties.Settings.Default.EIGHT_OFF;
                     break;
             }
         }
 
-        // Save button code to save changes.
-        private void SaveBtn_Click(object sender, EventArgs e)
+        // Setup values to other variables.
+        private void LoadData(object sender, DoWorkEventArgs e)
         {
-            if (nameschanged > 0 || onchanged > 0 || offchanged > 0)
-            {
-                SaveAllMods();
-                Properties.Settings.Default.Save();
-                MessageBox.Show("All Settings have been saved successfully.", "Settings Panel", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
+            NameTxtBox.Text = bName = globalName;
+            ONTxtBox.Text = bON = globalON;
+            OFFTxtBox.Text = bOFF = globalOFF;
         }
 
         // Basic Save Code.
-        private void SaveAllMods()
+        private void Save()
         {
             switch (NameTxtBox.Text)
             {
@@ -232,7 +239,30 @@ namespace BtC
                     break;
             }
         }
-        
+
+
+        // Save button refers to the void saveCheck().
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            saveCheck();
+        }
+
+        // Code to save changes.
+        private void saveCheck()
+        {
+            if (nameschanged > 0 || onchanged > 0 || offchanged > 0)
+            {
+                Save();
+                Properties.Settings.Default.Save();
+                MessageBox.Show("All Settings have been saved successfully.", "Settings Panel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
         // The TitleBar Code.
         private void TitlebarPanel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -247,191 +277,50 @@ namespace BtC
             SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
 
-
-        private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (nameschanged > 0 || onchanged > 0 || offchanged > 0)
-            {
-                SaveAllMods();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        // Simple check to see if the Name values changed.
         private void NameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            switch (btnID)
+            if (NameTxtBox.Text != globalName)
             {
-                case 1:
-                    if (NameTxtBox.Text != Properties.Settings.Default.ONE)
-                    {
-                        nameschanged++;
-                    }
-                    break;
-                case 2:
-                    if (NameTxtBox.Text != Properties.Settings.Default.TWO)
-                    {
-                        nameschanged++;
-                    }
-                    break;
-                case 3:
-                    if (NameTxtBox.Text != Properties.Settings.Default.THREE)
-                    {
-                        nameschanged++;
-                    }
-                    break;
-                case 4:
-                    if (NameTxtBox.Text != Properties.Settings.Default.FOUR)
-                    {
-                        nameschanged++;
-                    }
-                    break;
-                case 5:
-                    if (NameTxtBox.Text != Properties.Settings.Default.FIVE)
-                    {
-                        nameschanged++;
-                    }
-                    break;
-                case 6:
-                    if (NameTxtBox.Text != Properties.Settings.Default.SIX)
-                    {
-                        nameschanged++;
-                    }
-                    break;
-                case 7:
-                    if (NameTxtBox.Text != Properties.Settings.Default.SEVEN)
-                    {
-                        nameschanged++;
-                    }
-                    break;
-                case 8:
-                    if (NameTxtBox.Text != Properties.Settings.Default.EIGHT)
-                    {
-                        nameschanged++;
-                    }
-                    break;
+                nameschanged++;
             }
         }
 
+        // Simple check to see if the ON values changed.
         private void ONTxtBox_TextChanged(object sender, EventArgs e)
         {
-            switch (btnID)
+            if (ONTxtBox.Text != globalON)
             {
-                case 1:
-                    if (ONTxtBox.Text != Properties.Settings.Default.ONE_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
-                case 2:
-                    if (ONTxtBox.Text != Properties.Settings.Default.TWO_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
-                case 3:
-                    if (ONTxtBox.Text != Properties.Settings.Default.THREE_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
-                case 4:
-                    if (ONTxtBox.Text != Properties.Settings.Default.FOUR_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
-                case 5:
-                    if (ONTxtBox.Text != Properties.Settings.Default.FIVE_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
-                case 6:
-                    if (ONTxtBox.Text != Properties.Settings.Default.SIX_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
-                case 7:
-                    if (ONTxtBox.Text != Properties.Settings.Default.SIX_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
-                case 8:
-                    if (ONTxtBox.Text != Properties.Settings.Default.EIGHT_ON)
-                    {
-                        onchanged++;
-                    }
-                    break;
+                onchanged++;
             }
         }
 
+        // Simple check to see if the OFF values changed.
         private void OFFTxtBox_TextChanged(object sender, EventArgs e)
         {
-            switch (btnID)
+            if (OFFTxtBox.Text != globalOFF)
             {
-                case 1:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.ONE_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
-                case 2:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.TWO_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
-                case 3:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.THREE_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
-                case 4:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.FOUR_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
-                case 5:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.FIVE_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
-                case 6:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.SIX_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
-                case 7:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.SEVEN_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
-                case 8:
-                    if (OFFTxtBox.Text != Properties.Settings.Default.EIGHT_OFF)
-                    {
-                        offchanged++;
-                    }
-                    break;
+                offchanged++;
             }
         }
 
+        // Enter key confirms changes while Esc key closes Settings.
         private void SettingsForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                
+                saveCheck();
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        // Cancel button to close the form.
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

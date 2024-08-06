@@ -32,13 +32,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TitlebarPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.MinBtn = new SANeX.CC_ModernButton();
             this.controlbox = new System.Windows.Forms.ImageList(this.components);
+            this.CloseBtn = new SANeX.CC_ModernButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SPDropDown = new BtC.CustomControls_ModernDropDown();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.RefreshBtn = new SANeX.CC_ModernButton();
+            this.DisconBtn = new SANeX.CC_ModernButton();
+            this.AutoCon = new SANeX.CC_ModernButton();
             this.EditButtonMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTips = new System.Windows.Forms.ToolTip(this.components);
-            this.Progresbar = new SANeX.CC_ModernProgressBar();
             this.EIGHT = new SANeX.CC_ModernButton();
             this.SEVEN = new SANeX.CC_ModernButton();
             this.SIX = new SANeX.CC_ModernButton();
@@ -47,12 +52,7 @@
             this.THREE = new SANeX.CC_ModernButton();
             this.TWO = new SANeX.CC_ModernButton();
             this.ONE = new SANeX.CC_ModernButton();
-            this.AutoCon = new SANeX.CC_ModernButton();
-            this.RefreshBtn = new SANeX.CC_ModernButton();
-            this.DisconBtn = new SANeX.CC_ModernButton();
-            this.SPDropDown = new BtC.CustomControls_ModernDropDown();
-            this.MinBtn = new SANeX.CC_ModernButton();
-            this.CloseBtn = new SANeX.CC_ModernButton();
+            this.Progresbar = new SANeX.CC_ModernProgressBar();
             this.TitlebarPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -83,12 +83,58 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "BtC";
             // 
+            // MinBtn
+            // 
+            this.MinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.MinBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.MinBtn.BorderColor = System.Drawing.Color.Red;
+            this.MinBtn.BorderRadius = 0;
+            this.MinBtn.BorderSize = 0;
+            this.MinBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MinBtn.FlatAppearance.BorderSize = 0;
+            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Goldenrod;
+            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.MinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinBtn.ForeColor = System.Drawing.Color.White;
+            this.MinBtn.ImageIndex = 0;
+            this.MinBtn.ImageList = this.controlbox;
+            this.MinBtn.Location = new System.Drawing.Point(136, 0);
+            this.MinBtn.Name = "MinBtn";
+            this.MinBtn.Size = new System.Drawing.Size(55, 35);
+            this.MinBtn.TabIndex = 4;
+            this.MinBtn.TextColor = System.Drawing.Color.White;
+            this.MinBtn.UseVisualStyleBackColor = false;
+            this.MinBtn.Click += new System.EventHandler(this.MinBtn_Click);
+            // 
             // controlbox
             // 
             this.controlbox.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("controlbox.ImageStream")));
             this.controlbox.TransparentColor = System.Drawing.Color.Transparent;
             this.controlbox.Images.SetKeyName(0, "minimise.png");
             this.controlbox.Images.SetKeyName(1, "Close.png");
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CloseBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CloseBtn.BorderColor = System.Drawing.Color.Red;
+            this.CloseBtn.BorderRadius = 0;
+            this.CloseBtn.BorderSize = 0;
+            this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CloseBtn.FlatAppearance.BorderSize = 0;
+            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(5)))));
+            this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(20)))), ((int)(((byte)(10)))));
+            this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.ImageIndex = 1;
+            this.CloseBtn.ImageList = this.controlbox;
+            this.CloseBtn.Location = new System.Drawing.Point(191, 0);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(55, 35);
+            this.CloseBtn.TabIndex = 3;
+            this.CloseBtn.TextColor = System.Drawing.Color.White;
+            this.CloseBtn.UseVisualStyleBackColor = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // panel1
             // 
@@ -101,6 +147,28 @@
             this.panel1.Size = new System.Drawing.Size(246, 29);
             this.panel1.TabIndex = 2;
             // 
+            // SPDropDown
+            // 
+            this.SPDropDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.SPDropDown.BorderColor = System.Drawing.Color.Gray;
+            this.SPDropDown.BorderSize = 1;
+            this.SPDropDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SPDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.SPDropDown.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SPDropDown.ForeColor = System.Drawing.Color.White;
+            this.SPDropDown.IconColor = System.Drawing.Color.White;
+            this.SPDropDown.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SPDropDown.ListTextColor = System.Drawing.Color.White;
+            this.SPDropDown.Location = new System.Drawing.Point(0, 0);
+            this.SPDropDown.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.SPDropDown.MinimumSize = new System.Drawing.Size(50, 15);
+            this.SPDropDown.Name = "SPDropDown";
+            this.SPDropDown.Padding = new System.Windows.Forms.Padding(1);
+            this.SPDropDown.Size = new System.Drawing.Size(156, 29);
+            this.SPDropDown.TabIndex = 0;
+            this.SPDropDown.Texts = "Choose COM port";
+            this.SPDropDown.OnSelectedIndexChanged += new System.EventHandler(this.SPDropDown_SelectedIndexChanged);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.RefreshBtn);
@@ -112,6 +180,84 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.panel2.Size = new System.Drawing.Size(90, 29);
             this.panel2.TabIndex = 2;
+            // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.RefreshBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RefreshBtn.BorderColor = System.Drawing.Color.Gray;
+            this.RefreshBtn.BorderRadius = 15;
+            this.RefreshBtn.BorderSize = 1;
+            this.RefreshBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RefreshBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.RefreshBtn.FlatAppearance.BorderSize = 0;
+            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefreshBtn.ForeColor = System.Drawing.Color.White;
+            this.RefreshBtn.Image = global::BtC.Properties.Resources.Refresh;
+            this.RefreshBtn.Location = new System.Drawing.Point(32, 0);
+            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(29, 29);
+            this.RefreshBtn.TabIndex = 5;
+            this.RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RefreshBtn.TextColor = System.Drawing.Color.White;
+            this.ToolTips.SetToolTip(this.RefreshBtn, "ReConnect");
+            this.RefreshBtn.UseVisualStyleBackColor = false;
+            this.RefreshBtn.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // DisconBtn
+            // 
+            this.DisconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.DisconBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.DisconBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DisconBtn.BorderColor = System.Drawing.Color.Gray;
+            this.DisconBtn.BorderRadius = 15;
+            this.DisconBtn.BorderSize = 1;
+            this.DisconBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DisconBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.DisconBtn.FlatAppearance.BorderSize = 0;
+            this.DisconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DisconBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconBtn.ForeColor = System.Drawing.Color.White;
+            this.DisconBtn.Image = global::BtC.Properties.Resources.discon;
+            this.DisconBtn.Location = new System.Drawing.Point(61, 0);
+            this.DisconBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DisconBtn.Name = "DisconBtn";
+            this.DisconBtn.Size = new System.Drawing.Size(29, 29);
+            this.DisconBtn.TabIndex = 4;
+            this.DisconBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DisconBtn.TextColor = System.Drawing.Color.White;
+            this.ToolTips.SetToolTip(this.DisconBtn, "DisConnect");
+            this.DisconBtn.UseVisualStyleBackColor = false;
+            this.DisconBtn.Click += new System.EventHandler(this.DisconBtn_Click);
+            // 
+            // AutoCon
+            // 
+            this.AutoCon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.AutoCon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.AutoCon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AutoCon.BorderColor = System.Drawing.Color.Gray;
+            this.AutoCon.BorderRadius = 15;
+            this.AutoCon.BorderSize = 1;
+            this.AutoCon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AutoCon.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.AutoCon.FlatAppearance.BorderSize = 0;
+            this.AutoCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AutoCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AutoCon.ForeColor = System.Drawing.Color.White;
+            this.AutoCon.Image = global::BtC.Properties.Resources.link;
+            this.AutoCon.Location = new System.Drawing.Point(3, 0);
+            this.AutoCon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AutoCon.Name = "AutoCon";
+            this.AutoCon.Size = new System.Drawing.Size(29, 29);
+            this.AutoCon.TabIndex = 6;
+            this.AutoCon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AutoCon.TextColor = System.Drawing.Color.White;
+            this.ToolTips.SetToolTip(this.AutoCon, "Auto Connect");
+            this.AutoCon.UseVisualStyleBackColor = false;
+            this.AutoCon.Click += new System.EventHandler(this.AutoCon_Click);
             // 
             // EditButtonMenu
             // 
@@ -140,26 +286,6 @@
             this.ToolTips.InitialDelay = 300;
             this.ToolTips.ReshowDelay = 100;
             this.ToolTips.UseFading = false;
-            // 
-            // Progresbar
-            // 
-            this.Progresbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Progresbar.ChannelColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Progresbar.ChannelHeight = 6;
-            this.Progresbar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Progresbar.ForeBackColor = System.Drawing.Color.Lime;
-            this.Progresbar.ForeColor = System.Drawing.Color.White;
-            this.Progresbar.Location = new System.Drawing.Point(0, 321);
-            this.Progresbar.Name = "Progresbar";
-            this.Progresbar.ShowMaximun = false;
-            this.Progresbar.ShowValue = SANeX.TextPosition.None;
-            this.Progresbar.Size = new System.Drawing.Size(246, 4);
-            this.Progresbar.SliderColor = System.Drawing.Color.Lime;
-            this.Progresbar.SliderHeight = 6;
-            this.Progresbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.Progresbar.SymbolAfter = "";
-            this.Progresbar.SymbolBefore = "";
-            this.Progresbar.TabIndex = 11;
             // 
             // EIGHT
             // 
@@ -346,149 +472,25 @@
             this.ONE.UseVisualStyleBackColor = false;
             this.ONE.Click += new System.EventHandler(this.ONE_Click);
             // 
-            // AutoCon
+            // Progresbar
             // 
-            this.AutoCon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.AutoCon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.AutoCon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.AutoCon.BorderColor = System.Drawing.Color.Gray;
-            this.AutoCon.BorderRadius = 15;
-            this.AutoCon.BorderSize = 1;
-            this.AutoCon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AutoCon.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.AutoCon.FlatAppearance.BorderSize = 0;
-            this.AutoCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AutoCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoCon.ForeColor = System.Drawing.Color.White;
-            this.AutoCon.Image = global::BtC.Properties.Resources.link;
-            this.AutoCon.Location = new System.Drawing.Point(3, 0);
-            this.AutoCon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AutoCon.Name = "AutoCon";
-            this.AutoCon.Size = new System.Drawing.Size(29, 29);
-            this.AutoCon.TabIndex = 6;
-            this.AutoCon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AutoCon.TextColor = System.Drawing.Color.White;
-            this.ToolTips.SetToolTip(this.AutoCon, "Auto Connect");
-            this.AutoCon.UseVisualStyleBackColor = false;
-            this.AutoCon.Click += new System.EventHandler(this.AutoCon_Click);
-            // 
-            // RefreshBtn
-            // 
-            this.RefreshBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.RefreshBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.RefreshBtn.BorderColor = System.Drawing.Color.Gray;
-            this.RefreshBtn.BorderRadius = 15;
-            this.RefreshBtn.BorderSize = 1;
-            this.RefreshBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RefreshBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefreshBtn.ForeColor = System.Drawing.Color.White;
-            this.RefreshBtn.Image = global::BtC.Properties.Resources.Refresh;
-            this.RefreshBtn.Location = new System.Drawing.Point(32, 0);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(29, 29);
-            this.RefreshBtn.TabIndex = 5;
-            this.RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RefreshBtn.TextColor = System.Drawing.Color.White;
-            this.ToolTips.SetToolTip(this.RefreshBtn, "ReConnect");
-            this.RefreshBtn.UseVisualStyleBackColor = false;
-            this.RefreshBtn.Click += new System.EventHandler(this.Refresh_Click);
-            // 
-            // DisconBtn
-            // 
-            this.DisconBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.DisconBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.DisconBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DisconBtn.BorderColor = System.Drawing.Color.Gray;
-            this.DisconBtn.BorderRadius = 15;
-            this.DisconBtn.BorderSize = 1;
-            this.DisconBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DisconBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.DisconBtn.FlatAppearance.BorderSize = 0;
-            this.DisconBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisconBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisconBtn.ForeColor = System.Drawing.Color.White;
-            this.DisconBtn.Image = global::BtC.Properties.Resources.discon;
-            this.DisconBtn.Location = new System.Drawing.Point(61, 0);
-            this.DisconBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DisconBtn.Name = "DisconBtn";
-            this.DisconBtn.Size = new System.Drawing.Size(29, 29);
-            this.DisconBtn.TabIndex = 4;
-            this.DisconBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DisconBtn.TextColor = System.Drawing.Color.White;
-            this.ToolTips.SetToolTip(this.DisconBtn, "DisConnect");
-            this.DisconBtn.UseVisualStyleBackColor = false;
-            this.DisconBtn.Click += new System.EventHandler(this.DisconBtn_Click);
-            // 
-            // SPDropDown
-            // 
-            this.SPDropDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.SPDropDown.BorderColor = System.Drawing.Color.Gray;
-            this.SPDropDown.BorderSize = 1;
-            this.SPDropDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SPDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.SPDropDown.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SPDropDown.ForeColor = System.Drawing.Color.White;
-            this.SPDropDown.IconColor = System.Drawing.Color.White;
-            this.SPDropDown.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SPDropDown.ListTextColor = System.Drawing.Color.White;
-            this.SPDropDown.Location = new System.Drawing.Point(0, 0);
-            this.SPDropDown.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.SPDropDown.MinimumSize = new System.Drawing.Size(50, 15);
-            this.SPDropDown.Name = "SPDropDown";
-            this.SPDropDown.Padding = new System.Windows.Forms.Padding(1);
-            this.SPDropDown.Size = new System.Drawing.Size(156, 29);
-            this.SPDropDown.TabIndex = 0;
-            this.SPDropDown.Texts = "Choose COM port";
-            this.SPDropDown.OnSelectedIndexChanged += new System.EventHandler(this.SPDropDown_SelectedIndexChanged);
-            // 
-            // MinBtn
-            // 
-            this.MinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.MinBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.MinBtn.BorderColor = System.Drawing.Color.Red;
-            this.MinBtn.BorderRadius = 0;
-            this.MinBtn.BorderSize = 0;
-            this.MinBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MinBtn.FlatAppearance.BorderSize = 0;
-            this.MinBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Goldenrod;
-            this.MinBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
-            this.MinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinBtn.ForeColor = System.Drawing.Color.White;
-            this.MinBtn.ImageIndex = 0;
-            this.MinBtn.ImageList = this.controlbox;
-            this.MinBtn.Location = new System.Drawing.Point(136, 0);
-            this.MinBtn.Name = "MinBtn";
-            this.MinBtn.Size = new System.Drawing.Size(55, 35);
-            this.MinBtn.TabIndex = 4;
-            this.MinBtn.TextColor = System.Drawing.Color.White;
-            this.MinBtn.UseVisualStyleBackColor = false;
-            // 
-            // CloseBtn
-            // 
-            this.CloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CloseBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CloseBtn.BorderColor = System.Drawing.Color.Red;
-            this.CloseBtn.BorderRadius = 0;
-            this.CloseBtn.BorderSize = 0;
-            this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseBtn.FlatAppearance.BorderSize = 0;
-            this.CloseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(20)))), ((int)(((byte)(5)))));
-            this.CloseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(20)))), ((int)(((byte)(10)))));
-            this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.ImageIndex = 1;
-            this.CloseBtn.ImageList = this.controlbox;
-            this.CloseBtn.Location = new System.Drawing.Point(191, 0);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(55, 35);
-            this.CloseBtn.TabIndex = 3;
-            this.CloseBtn.TextColor = System.Drawing.Color.White;
-            this.CloseBtn.UseVisualStyleBackColor = false;
+            this.Progresbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Progresbar.ChannelColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Progresbar.ChannelHeight = 6;
+            this.Progresbar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Progresbar.ForeBackColor = System.Drawing.Color.Lime;
+            this.Progresbar.ForeColor = System.Drawing.Color.White;
+            this.Progresbar.Location = new System.Drawing.Point(0, 321);
+            this.Progresbar.Name = "Progresbar";
+            this.Progresbar.ShowMaximun = false;
+            this.Progresbar.ShowValue = SANeX.TextPosition.None;
+            this.Progresbar.Size = new System.Drawing.Size(246, 4);
+            this.Progresbar.SliderColor = System.Drawing.Color.Lime;
+            this.Progresbar.SliderHeight = 6;
+            this.Progresbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.Progresbar.SymbolAfter = "";
+            this.Progresbar.SymbolBefore = "";
+            this.Progresbar.TabIndex = 11;
             // 
             // MainForm
             // 
