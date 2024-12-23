@@ -5,14 +5,15 @@
 Bluetooth Control or BtC is a DotNet Framework based application for controlling appliances upto 8 ports on Uno R3 or [more boards](https://github.com/SANeX15/BtC/releases/tag/2.0.0) via a Serial-to-Bluetooth connection on a Windows-based device.
 
 ## Screenshots
-Will be uploaded soon.
+![btc off](https://github.com/user-attachments/assets/8238938e-01c7-4325-a333-019bffc59a34) ![btc-main](https://github.com/user-attachments/assets/874685de-24aa-4fbe-a58c-ae09d9856d46) ![btc settings](https://github.com/user-attachments/assets/17eca4b7-17be-4af7-a75e-9a3c9408d91d)
+
 
 ## Features
- - Modifiable button names (Button Settings, Screenshot #2).
- - Modifiable ON/OFF commands (Button Settings, Screenshot #2).
+ - Modifiable button names (Button Settings, Screenshot #3).
+ - Modifiable ON/OFF commands (Button Settings, Screenshot #3).
  - Activation by numeric pad/number key press.
- - Easy-To-Use User Interface (Screenshots above).
- - Automatic connection ability (Screenshots above).
+ - Easy-To-Use User Interface (Screenshots #2).
+ - Automatic connection ability (Screenshots #2).
 
 ## Prerequisites / Requirements
  - A Windows 7+ device with Bluetooth.
@@ -24,7 +25,7 @@ Will be uploaded soon.
 ## Instructions
  1. Turn on Bluetooth, connect to HC05 and link it to a Serial Port. -(details will be uploaded soon)
  2. Start BtC and select previously linked Serial Port.
- 3. Wait till connection suceeds (when the text turns green and shows 'Connected').
+ 3. Wait till connection suceeds (when the buttons are enabled and their text colors turn white).
  4. Use Buttons 1-8 to toggle appliances connected to the board.
 
  E. Right Click any buttons from 1-8 and select Button Settings to change their name and ON/OFF commands. (Button Settings, Screenshot #2)
