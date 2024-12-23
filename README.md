@@ -5,15 +5,16 @@
 Bluetooth Control or BtC is a DotNet Framework based application for controlling appliances upto 8 ports on Uno R3 or [more boards](https://github.com/SANeX15/BtC/releases/tag/2.0.0) via a Serial-to-Bluetooth connection on a Windows-based device.
 
 ## Screenshots
-![btc off](https://github.com/user-attachments/assets/8238938e-01c7-4325-a333-019bffc59a34) ![btc-main](https://github.com/user-attachments/assets/874685de-24aa-4fbe-a58c-ae09d9856d46) ![btc settings](https://github.com/user-attachments/assets/17eca4b7-17be-4af7-a75e-9a3c9408d91d)
+![btc-main](https://github.com/user-attachments/assets/874685de-24aa-4fbe-a58c-ae09d9856d46) Main Layout
+![btc settings](https://github.com/user-attachments/assets/17eca4b7-17be-4af7-a75e-9a3c9408d91d) Button Settings
 
 
 ## Features
- - Modifiable button names (Button Settings, Screenshot #3).
- - Modifiable ON/OFF commands (Button Settings, Screenshot #3).
+ - Modifiable button names (Button Settings, Screenshot #2).
+ - Modifiable ON/OFF commands (Button Settings, Screenshot #2).
  - Activation by numeric pad/number key press.
- - Easy-To-Use User Interface (Screenshots #2).
- - Automatic connection ability (Screenshots #2).
+ - Easy-To-Use User Interface (Screenshots #1).
+ - Automatic connection ability (Screenshots #1).
 
 ## Prerequisites / Requirements
  - A Windows 7+ device with Bluetooth.
